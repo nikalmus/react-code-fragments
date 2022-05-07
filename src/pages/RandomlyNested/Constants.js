@@ -1,4 +1,4 @@
-export const nonsensicalWords1 = {
+export const nonsensicalWordsObj = {
   brillig:
     "that time between twilight and pitch black, when it is just starting to get scary dark",
   animals: {

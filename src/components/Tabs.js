@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Formatter from "../pages/RandomlyNested/components/Formatter";
 import Blank from "../pages/Blank/components/Blank";
 import List from "../pages/List/components/List";
+import { nonsensicalWordsObj } from "../pages/RandomlyNested/Constants";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
+
   const pages = ["Formatter", "List", "Blank"];
   return (
     <div className="tabs">
@@ -23,7 +25,7 @@ const Tabs = () => {
         {(function () {
           switch (activeTab) {
             case "Formatter":
-              return <Formatter />;
+              return <Formatter obj={nonsensicalWordsObj} />;
             case "List":
               return <List />;
             default:
