@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Todo = ({ item }) => {
+const ListItem = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <>
@@ -25,4 +25,4 @@ const Todo = ({ item }) => {
     </>
   );
 };
-export default Todo;
+export default ListItem;

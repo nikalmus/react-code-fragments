@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Todo from "./Todo";
+import React from "react";
+import ListItem from "./ListItem";
 import "./TodosList.css";
 
 const TodosList = ({ data }) => {
@@ -7,7 +7,7 @@ const TodosList = ({ data }) => {
     <>
       <div className="list">
         {data.map((item) => (
-          <Todo key={item.id} item={item} />
+          <ListItem key={item.id} item={item} />
         ))}
       </div>
     </>

@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { getTodos } from "../api/requests";
 import { parseLinks } from "../api/apiUtils";
 import TodosList from "./TodosList";
+import TodosGrid from "./TodosGrid";
 import "./Todos.css";
 
 const Todos = () => {
@@ -33,7 +34,7 @@ const Todos = () => {
         ) : layout === "list" ? (
           <TodosList data={response.data} />
         ) : (
-          "why?"
+          <TodosGrid data={response.data} />
         )}
       </div>
       <div className="footer">
