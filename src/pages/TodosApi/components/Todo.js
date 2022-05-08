@@ -14,7 +14,11 @@ const Todo = ({ item }) => {
       <div className="details">
         {expanded
           ? Object.entries(item).map(([key, value]) => {
-              return key !== "title" ? <p>{`${key}:${value}`}</p> : "";
+              return key !== "title" ? (
+                <p key={key}>{`${key}:${value}`}</p>
+              ) : (
+                ""
+              );
             })
           : ""}
       </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Formatter from "../pages/RandomlyNested/components/Formatter";
 import Blank from "../pages/Blank/components/Blank";
 import List from "../pages/List/components/List";
-import TodosList from "../pages/TodosApi/components/TodosList";
+import Todos from "../pages/TodosApi/components/Todos";
 import { nonsensicalWordsObj } from "../pages/RandomlyNested/Constants";
 
 const Tabs = () => {
@@ -30,7 +30,7 @@ const Tabs = () => {
             case "List":
               return <List />;
             case "Todos Api":
-              return <TodosList />;
+              return <Todos />;
             default:
               return <Blank />;
           }
