@@ -8,7 +8,6 @@
 }
 
 .btn {
-  display: inline-block;
   padding:  1px;
   margin: 5px;
 }
@@ -16,7 +15,14 @@
     border: 1px solid black;
     padding: 15px;
     margin: 5pxc;
+    color: darkolivegreen;
 }
 .item {
-    color: darkolivegreen;
+    font-weight: bold;
+    float: left;
+}
+
+.expand-collapse {
+    cursor: pointer;
+    text-indent: 5px;
 }
