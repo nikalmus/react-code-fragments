@@ -1,0 +1,22 @@
+.footer {
+   display: flex;
+   margin: 5px;
+}
+
+.footer > p {
+    margin: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding:  1px;
+  margin: 5px;
+}
+.list {
+    border: 1px solid black;
+    padding: 15px;
+    margin: 5pxc;
+}
+.item {
+    color: darkolivegreen;
+}
