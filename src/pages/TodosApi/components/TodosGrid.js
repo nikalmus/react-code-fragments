@@ -1,4 +1,5 @@
-//import GridItem from "./GridItem";
+import GridItemTitle from "./GridItemTitle";
+import GridItemStatus from "./GridItemStatus";
 import "./TodosGrid.css";
 
 const TodosGrid = ({ data }) => {
@@ -9,16 +10,12 @@ const TodosGrid = ({ data }) => {
           <strong>Title</strong>
         </span>
         <span>
-          <strong>User</strong>
-        </span>
-        <span>
           <strong>Completed</strong>
         </span>
         {data.map((item) => (
           <>
-            <span>{`${item.id}:${item.title}`}</span>
-            <span>{item.userId.toString()}</span>
-            <span>{item.completed.toString()}</span>
+            <GridItemTitle id={item.id} title={item.title} />
+            <GridItemStatus completed={item.completed} />
           </>
         ))}
       </div>

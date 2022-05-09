@@ -1,12 +1,21 @@
 .grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     border-top: 1px solid black;
     border-right: 1px solid black;
+    
   }
 
 .grid > span {
     padding: 8px 4px;
     border-left:1px solid black;
     border-bottom:1px solid black;
+}
+
+.completed {
+    background-color: #98fb98;
+}
+
+.not-completed {
+    background-color: #ffa07a;
 }
