@@ -4,12 +4,13 @@ import Blank from "../pages/Blank/components/Blank";
 import List from "../pages/List/components/List";
 import Todos from "../pages/TodosApi/components/Todos";
 import { nonsensicalWordsObj } from "../pages/RandomlyNested/Constants";
-import Grid from "../pages/A11yGrid/components/Grid";
+import Grid from "../pages/AccessGrid/components/Grid";
+import Access from "../pages/AccessMore/components/Access";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
 
-  const pages = ["Formatter", "List", "Todos Api", "Grid", "Blank"];
+  const pages = ["Formatter", "List", "Todos Api", "Grid", "Access", "Blank"];
   return (
     <div className="tabs">
       <ul className="nav">
@@ -34,6 +35,8 @@ const Tabs = () => {
               return <Todos />;
             case "Grid":
               return <Grid />;
+            case "Access":
+              return <Access />;
             default:
               return <Blank />;
           }
