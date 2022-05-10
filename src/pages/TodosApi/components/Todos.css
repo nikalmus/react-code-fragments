@@ -1,0 +1,13 @@
+.footer {
+    display: flex;
+    margin: 5px;
+ }
+ 
+ .footer > p {
+     margin: 5px;
+ }
+ 
+ .btn {
+   padding:  1px;
+   margin: 5px;
+ }
