@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import nonsensicalWords1 from "../Constants";
-
-const Formatter = () => {
-  return <div>Formatter Of Randomly Nested Objects</div>;
-};
-
-export default Formatter;
-||||||| merged common ancestors
-=======
 import React from "react";
 
 const Formatter = ({ obj }) => {
@@ -32,4 +22,3 @@ const Formatter = ({ obj }) => {
 };
 
 export default Formatter;
->>>>>>> three tabs
