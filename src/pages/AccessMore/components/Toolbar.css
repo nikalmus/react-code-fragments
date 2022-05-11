@@ -1,0 +1,9 @@
+.topnav{
+    display:inline-flex; /*side-by-side*/
+    background-color: lightgrey;
+    width: 100%
+}
+
+.topnav > * {
+    margin: 0.5rem;
+}
