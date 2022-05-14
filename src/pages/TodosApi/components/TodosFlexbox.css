@@ -1,11 +1,36 @@
 .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    /*justify-content: space-between;*/
+  margin: 15px;
 }
   
-/* .item {
-    flex: 0 32%;
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    border: 1px solid black;  
+    height: 3rem;
+}
+
+.name-column {
     height: 100px;
-    margin-bottom: 2%; // (100-32*3)/2 
-} */
+}
+  
+.completed-column {
+    height: 100px;
+}
+
+.completed {
+    background-color: #98fb98;
+}
+
+.not-completed {
+    background-color: #ffa07a;
+}
+

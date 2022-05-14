@@ -1,20 +1,31 @@
-import GridItemTitle from "./GridItemTitle";
-import GridItemStatus from "./GridItemStatus";
-import "./TodosGrid.css";
+import "./TodosFlexbox.css";
+
 const TodosFlexbox = ({ data }) => {
   return (
     <div class="wrapper">
-      <span>
-        <strong>Title</strong>
-      </span>
-      <span>
-        <strong>Completed</strong>
-      </span>
+      <div className="row">
+        <div className="column">
+          <strong>Title</strong>
+        </div>
+        <div className="column">
+          <strong>Completed</strong>
+        </div>
+      </div>
       {data.map((item) => (
-        <>
-          <GridItemTitle className="item" id={item.id} title={item.title} />
-          <GridItemStatus className="item" completed={item.completed} />
-        </>
+        <div class="row">
+          <div class="column">
+            <div class="name-column">{`ID${item.id}: ${item.title}`}</div>
+          </div>
+          <div class="column">
+            <div
+              class={`completed-column ${
+                item.completed ? "completed" : "not-completed"
+              }`}
+            >
+              {item.completed.toString()}
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   );

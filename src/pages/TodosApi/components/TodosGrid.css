@@ -1,11 +1,11 @@
-.wrapper {
+.grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     border-top: 1px solid black;
     border-right: 1px solid black;
   }
 
-.wrapper > span {
+.grid > span {
     padding: 8px 4px;
     border-left:1px solid black;
     border-bottom:1px solid black;
