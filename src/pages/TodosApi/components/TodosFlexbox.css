@@ -5,32 +5,25 @@
 .row {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
 }
 
-.column {
+.name-cell {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    border: 1px solid black;  
+    height: 3rem;
+    flex: 1 0 auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.completed-cell {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
     border: 1px solid black;  
     height: 3rem;
-}
-
-.name-column {
-    height: 100px;
-}
-  
-.completed-column {
-    height: 100px;
-}
-
-.completed {
-    background-color: #98fb98;
-}
-
-.not-completed {
-    background-color: #ffa07a;
 }
 
