@@ -1,0 +1,29 @@
+.wrapper {
+  margin: 15px;
+}
+  
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.name-cell {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    border: 1px solid black;  
+    height: 3rem;
+    flex: 1 0 auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.completed-cell {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    border: 1px solid black;  
+    height: 3rem;
+}
+
