@@ -5,7 +5,7 @@ import "./TodosGrid.css";
 const TodosGrid = ({ data }) => {
   return (
     <>
-      <div className="grid">
+      <div className="my-grid">
         <span>
           <strong>Title</strong>
         </span>

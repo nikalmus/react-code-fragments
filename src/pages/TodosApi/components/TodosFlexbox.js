@@ -2,7 +2,7 @@ import "./TodosFlexbox.css";
 
 const TodosFlexbox = ({ data }) => {
   return (
-    <div class="wrapper">
+    <div class="my-wrapper">
       <div className="row">
         <div className="name-cell">
           <strong>Title</strong>
