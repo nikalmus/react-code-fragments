@@ -3,6 +3,7 @@
     grid-template-columns: 2fr 1fr;
     border-top: 1px solid black;
     border-right: 1px solid black;
+    
   }
 
 .grid > span {

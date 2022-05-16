@@ -4,7 +4,6 @@ import { getTodos } from "../api/requests";
 import { parseLinks } from "../api/apiUtils";
 import TodosList from "./TodosList";
 import TodosGrid from "./TodosGrid";
-import TodosFlexbox from "./TodosFlexbox";
 import "./Todos.css";
 
 const Todos = () => {
@@ -33,13 +32,6 @@ const Todos = () => {
       >
         grid
       </button>
-      <button
-        className="btn"
-        onClick={() => setLayout("flexbox")}
-        disabled={layout === "flexbox"}
-      >
-        flexbox
-      </button>
       <div className="list">
         {isLoading ? (
           "Loading...."
@@ -49,12 +41,8 @@ const Todos = () => {
           "OH, NOES!!"
         ) : layout === "list" ? (
           <TodosList data={response.data} />
-        ) : layout === "grid" ? (
-          <TodosGrid data={response.data} />
-        ) : layout === "flexbox" ? (
-          <TodosFlexbox data={response.data} />
         ) : (
-          ""
+          <TodosGrid data={response.data} />
         )}
       </div>
       <div className="footer">
