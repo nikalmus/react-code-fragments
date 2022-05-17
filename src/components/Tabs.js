@@ -6,6 +6,7 @@ import Todos from "../pages/TodosApi/components/Todos";
 import { nonsensicalWordsObj } from "../pages/RandomlyNested/Constants";
 import LayoutPan from "../pages/AccessGrid/components/LayoutPan";
 import Access from "../pages/AccessMore/components/Access";
+import Users from "../pages/OfflineOnlineContext/components/Users";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
@@ -16,6 +17,7 @@ const Tabs = () => {
     "Todos Api",
     "Layout Pan",
     "Access",
+    "OfflineOnline",
     "Blank",
   ];
   return (
@@ -44,6 +46,8 @@ const Tabs = () => {
               return <LayoutPan />;
             case "Access":
               return <Access />;
+            case "OfflineOnline":
+              return <Users />;
             default:
               return <Blank />;
           }

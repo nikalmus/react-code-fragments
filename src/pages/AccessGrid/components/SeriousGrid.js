@@ -6,9 +6,9 @@ const SeriousGrid = () => {
   const [layout, setLayout] = useState("");
   const options = ["grid", "flex"];
   return (
-    <div class="wrapper">
-      <div class="header">{`${layout} layout:`}</div>
-      <div class="sidenav">
+    <div className="wrapper">
+      <div className="header">{`${layout} layout:`}</div>
+      <div className="sidenav">
         {options.map((opt) => (
           <button className="btn" onClick={() => setLayout(opt)}>
             {opt}
