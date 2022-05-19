@@ -1,0 +1,21 @@
+ul.no-bullets {
+    list-style-type: none;
+  }
+
+.box {
+  width:10rem;
+  height:5rem;
+  border:0.1rem solid #C0C0C0; 
+  padding: 0.5rem;
+  margin: 0.5rem;
+  
+}
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.btn{
+   float: right;
+}
+
