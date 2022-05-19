@@ -6,16 +6,33 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [next, setNext] = useState(0);
   const [done, setDone] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   useEffect(() => {
-    next < questions.length - 1
+    next <= questions.length - 1
       ? setCurrentQuestion(questions[next])
       : setDone(true);
-  }, [next, questions]);
+  }, [next]);
   return (
     <>
-      <Question currentQuestion={currentQuestion} setNext={setNext} />
-      <div>{done ? <span className="done">You are done!</span> : ""}</div>
+      <Question
+        currentQuestion={currentQuestion}
+        setNext={setNext}
+        userAnswers={userAnswers}
+        setUserAnswers={setUserAnswers}
+      />
+      <div>
+        {done && (
+          <>
+            <span>Your answers were:</span>
+            <ul className="no-bullets">
+              {userAnswers.map((a, i) => (
+                <li key={i}>{a}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     </>
   );
 };

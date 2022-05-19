@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import "./Question.css";
 
-const Question = ({ currentQuestion, setNext }) => {
+const Question = ({
+  currentQuestion,
+  setNext,
+  userAnswers,
+  setUserAnswers,
+}) => {
   const { question, answers, correct, id } = currentQuestion;
-  const [goodAnswer, setGoodAnswer] = useState(false);
+  //const [goodAnswer, setGoodAnswer] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  const checkAnswer = () => {
+  const recordAnswer = () => {
     const radioButtons = document.getElementsByName("answer");
     if (radioButtons.length > 0) {
       const result = [...radioButtons].filter((rb) => rb.checked === true);
       setSelectedAnswer(result[0]);
-      result[0].value === answers[correct]
+      console.log("result[0]", result[0]);
+      setUserAnswers([...userAnswers, result[0].id]);
+      /* result[0].value === answers[correct]
         ? setGoodAnswer(true)
-        : setGoodAnswer(false);
+        : setGoodAnswer(false); */
+      //accept any answer
     } else {
       console.log("OH NOES!");
     }
@@ -21,7 +29,7 @@ const Question = ({ currentQuestion, setNext }) => {
 
   const next = () => {
     setNext(id + 1);
-    setGoodAnswer(false);
+    //setGoodAnswer(false);
     selectedAnswer.checked = false;
   };
 
@@ -37,15 +45,11 @@ const Question = ({ currentQuestion, setNext }) => {
           </div>
         ))}
       </fieldset>
-      <button className="btn-some" type="submit" onClick={checkAnswer}>
+      <button className="btn-some" type="submit" onClick={recordAnswer}>
         Submit
       </button>
-      <button
-        className={`btn-some ${goodAnswer ? "btn-green" : ""}`}
-        disabled={!goodAnswer}
-        onClick={next}
-      >
-        {goodAnswer ? "Good! Next" : "Next"}
+      <button className="btn-some" disabled={!selectedAnswer} onClick={next}>
+        Next
       </button>
     </>
   );
