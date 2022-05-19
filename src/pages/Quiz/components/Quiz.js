@@ -11,7 +11,7 @@ const Quiz = () => {
     next < questions.length - 1
       ? setCurrentQuestion(questions[next])
       : setDone(true);
-  }, [next, questions]);
+  }, [next]);
   return (
     <>
       <Question currentQuestion={currentQuestion} setNext={setNext} />
