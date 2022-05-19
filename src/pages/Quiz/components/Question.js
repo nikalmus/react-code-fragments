@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Question.css";
-import QUESTIONS from "../Constants";
 
 const Question = ({ currentQuestion, setNext }) => {
   const { question, answers, correct, id } = currentQuestion;
@@ -10,16 +9,16 @@ const Question = ({ currentQuestion, setNext }) => {
   const checkAnswer = () => {
     const radioButtons = document.getElementsByName("answer");
     if (radioButtons.length > 0) {
-      //const result = radioButtons.filter((rb) => rb.checked === true);
       const result = [...radioButtons].filter((rb) => rb.checked === true);
       setSelectedAnswer(result[0]);
       result[0].value === answers[correct]
         ? setGoodAnswer(true)
         : setGoodAnswer(false);
     } else {
-      console.log("OH noes");
+      console.log("OH NOES!");
     }
   };
+
   const next = () => {
     setNext(id + 1);
     setGoodAnswer(false);
@@ -27,7 +26,7 @@ const Question = ({ currentQuestion, setNext }) => {
   };
 
   return (
-    <div className="question">
+    <>
       <strong>{question}</strong>
       <fieldset>
         <legend>choose one</legend>
@@ -48,7 +47,7 @@ const Question = ({ currentQuestion, setNext }) => {
       >
         {goodAnswer ? "Good! Next" : "Next"}
       </button>
-    </div>
+    </>
   );
 };
 
