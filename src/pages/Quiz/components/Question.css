@@ -1,0 +1,19 @@
+.answer {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.answer > label {
+    margin-left: 0.5rem;
+}
+
+.btn-some {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 5.5rem;
+    height: 2rem;
+}
+.btn-green {
+    color: white;
+    background-color: #097969;
+}
