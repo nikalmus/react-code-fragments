@@ -16,8 +16,19 @@ const Question = ({
     if (radioButtons.length > 0) {
       const result = [...radioButtons].filter((rb) => rb.checked === true);
       setSelectedAnswer(result[0]);
-      console.log("result[0]", result[0]);
-      setUserAnswers([...userAnswers, result[0].id]);
+      console.log(
+        "result[0].value:",
+        result[0].value,
+        "result[0].id:",
+        result[0].id
+      );
+      setUserAnswers([
+        ...userAnswers,
+        {
+          id: result[0].id,
+          value: result[0].value,
+        },
+      ]);
       /* result[0].value === answers[correct]
         ? setGoodAnswer(true)
         : setGoodAnswer(false); */

@@ -22,12 +22,17 @@ const Quiz = () => {
         setUserAnswers={setUserAnswers}
       />
       <div>
-        {done && (
+        {done && userAnswers.length > 0 && (
           <>
             <span>Your answers were:</span>
             <ul className="no-bullets">
               {userAnswers.map((a, i) => (
-                <li key={i}>{a}</li>
+                <li key={i}>
+                  {a.id}:{a.value}:
+                  {questions[i].correct.toString() === a.id.toString()
+                    ? "correct"
+                    : "incorrect"}
+                </li>
               ))}
             </ul>
           </>
