@@ -7,6 +7,7 @@ import { nonsensicalWordsObj } from "../pages/RandomlyNested/Constants";
 import LayoutPan from "../pages/AccessGrid/components/LayoutPan";
 import Access from "../pages/AccessMore/components/Access";
 import Users from "../pages/OfflineOnlineContext/components/Users";
+import Quiz from "../pages/Quiz/components/Quiz";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
@@ -18,6 +19,7 @@ const Tabs = () => {
     "Layout Pan",
     "Access",
     "OfflineOnline",
+    "Quiz",
     "Blank",
   ];
   return (
@@ -48,6 +50,8 @@ const Tabs = () => {
               return <Access />;
             case "OfflineOnline":
               return <Users />;
+            case "Quiz":
+              return <Quiz />;
             default:
               return <Blank />;
           }
