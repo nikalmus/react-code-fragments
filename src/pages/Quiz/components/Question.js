@@ -8,7 +8,6 @@ const Question = ({
   setUserAnswers,
 }) => {
   const { question, answers, correct, id } = currentQuestion;
-  //const [goodAnswer, setGoodAnswer] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const recordAnswer = () => {
@@ -27,12 +26,9 @@ const Question = ({
         {
           id: result[0].id,
           value: result[0].value,
+          correct: result[0].id.toString() === correct.toString(),
         },
       ]);
-      /* result[0].value === answers[correct]
-        ? setGoodAnswer(true)
-        : setGoodAnswer(false); */
-      //accept any answer
     } else {
       console.log("OH NOES!");
     }
