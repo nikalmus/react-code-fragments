@@ -36,7 +36,6 @@ const Question = ({
 
   const next = () => {
     setNext(id + 1);
-    //setGoodAnswer(false);
     selectedAnswer.checked = false;
   };
 

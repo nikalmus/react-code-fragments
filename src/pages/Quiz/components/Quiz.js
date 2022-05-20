@@ -7,7 +7,6 @@ const Quiz = () => {
   const questions = QUESTIONS.map((q, i) => ({ ...q, id: i }));
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [next, setNext] = useState(0);
-  const [done, setDone] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
   const [scoreRequested, setScoreRequested] = useState(false);
   const modalRef = useRef(null);
@@ -15,7 +14,7 @@ const Quiz = () => {
   useEffect(() => {
     next <= questions.length - 1
       ? setCurrentQuestion(questions[next])
-      : setDone(true);
+      : setScoreRequested(true);
   }, [next]);
 
   useEffect(() => {
@@ -48,7 +47,7 @@ const Quiz = () => {
         setUserAnswers={setUserAnswers}
       />
       <div>
-        {done && userAnswers.length > 0 && (
+        {scoreRequested && userAnswers.length > 0 && (
           <>
             <span>Your answers were:</span>
             <ul className="no-bullets">
@@ -56,12 +55,7 @@ const Quiz = () => {
                 <li key={i}>{`${a.value} : ${a.correct}`}</li>
               ))}
             </ul>
-            <button className="btn" onClick={() => setScoreRequested(true)}>
-              Score
-            </button>
-            {scoreRequested && (
-              <ScoreModal score={getScore()} modalRef={modalRef} />
-            )}
+            <ScoreModal score={getScore()} modalRef={modalRef} />
           </>
         )}
       </div>
