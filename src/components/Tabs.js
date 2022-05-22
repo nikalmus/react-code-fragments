@@ -8,6 +8,7 @@ import LayoutPan from "../pages/AccessGrid/components/LayoutPan";
 import Access from "../pages/AccessMore/components/Access";
 import Users from "../pages/OfflineOnlineContext/components/Users";
 import Quiz from "../pages/Quiz/components/Quiz";
+import Gallery from "../pages/PreloadImg/components/Gallery";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
@@ -20,6 +21,7 @@ const Tabs = () => {
     "Access",
     "OfflineOnline",
     "Quiz",
+    "Gallery",
     "Blank",
   ];
   return (
@@ -52,6 +54,8 @@ const Tabs = () => {
               return <Users />;
             case "Quiz":
               return <Quiz />;
+            case "Gallery":
+              return <Gallery />;
             default:
               return <Blank />;
           }
