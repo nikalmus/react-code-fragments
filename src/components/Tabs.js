@@ -9,6 +9,7 @@ import Access from "../pages/AccessMore/components/Access";
 import Users from "../pages/OfflineOnlineContext/components/Users";
 import Quiz from "../pages/Quiz/components/Quiz";
 import Gallery from "../pages/PreloadImg/components/Gallery";
+import Search from "../pages/Search/components/Search";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
@@ -22,6 +23,7 @@ const Tabs = () => {
     "OfflineOnline",
     "Quiz",
     "Gallery",
+    "Search",
     "Blank",
   ];
   return (
@@ -56,6 +58,8 @@ const Tabs = () => {
               return <Quiz />;
             case "Gallery":
               return <Gallery />;
+            case "Search":
+              return <Search />;
             default:
               return <Blank />;
           }
