@@ -3,8 +3,9 @@ import QUESTIONS from "../Constants";
 import Question from "./Question";
 import ScoreModal from "./ScoreModal";
 
+const questions = QUESTIONS.map((q, i) => ({ ...q, id: i }));
+
 const Quiz = () => {
-  const questions = QUESTIONS.map((q, i) => ({ ...q, id: i }));
   const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
   const [next, setNext] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -34,7 +35,7 @@ const Quiz = () => {
       (answer) => answer.correct === true
     );
     return `${
-      (correctUserAnswers.length / userAnswers.length).toFixed(2) * 100
+      (correctUserAnswers?.length / userAnswers.length).toFixed(2) * 100
     }%`;
   };
 
