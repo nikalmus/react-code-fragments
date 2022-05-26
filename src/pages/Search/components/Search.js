@@ -16,18 +16,21 @@ const Search = () => {
       );
       return results?.sort((a, b) => a.name.first.localeCompare(b.name.first));
     };
-    const filterData = (parsedData) => {
+    const parsedData = parseInitialData();
+
+    const filterData = () => {
       console.log("filtering data...");
       return parsedData.filter((item) =>
         item.name.first.startsWith(inputValue)
       );
     };
-    const parsedData = parseInitialData();
 
+    //wrap the call to filtering function in a setTimeout to debounce
     const timeout = setTimeout(() => {
-      const filteredData = inputValue ? filterData(parsedData) : parsedData;
+      const filteredData = inputValue ? filterData() : parsedData;
       setFilteredResults(filteredData);
-    }, 3000);
+    }, 2000);
+    //clearTimeout otherwise same number of filter calls is made but only with 2 sec delay
     return () => clearTimeout(timeout);
   }, [data, inputValue]);
 
