@@ -6,7 +6,7 @@ import "./Search.css";
 const Search = () => {
   const { data, isLoading, error } = useFetch(API_URL, PARAM_NAME, PARAM_VALUE);
   const [filteredResults, setFilteredResults] = useState();
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     const parseInitialData = () => {
@@ -16,15 +16,19 @@ const Search = () => {
       );
       return results?.sort((a, b) => a.name.first.localeCompare(b.name.first));
     };
-    const filterData = () => {
+    const filterData = (parsedData) => {
+      console.log("filtering data...");
       return parsedData.filter((item) =>
         item.name.first.startsWith(inputValue)
       );
     };
     const parsedData = parseInitialData();
-    const filteredData = inputValue ? filterData(parsedData) : parsedData;
-    console.log("filteredData", filteredData);
-    setFilteredResults(filteredData);
+
+    const timeout = setTimeout(() => {
+      const filteredData = inputValue ? filterData(parsedData) : parsedData;
+      setFilteredResults(filteredData);
+    }, 3000);
+    return () => clearTimeout(timeout);
   }, [data, inputValue]);
 
   return (
