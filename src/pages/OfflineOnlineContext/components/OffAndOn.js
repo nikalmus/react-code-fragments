@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useCallback } from "react";
+import React, { useContext, useEffect } from "react";
 import AppContext from "./AppContext";
 
 const OffAndOn = () => {
-  const ctx = useContext(AppContext);
-  const { userState, setUserState } = ctx;
+  const { userState, setUserState } = useContext(AppContext);
 
   useEffect(() => {
     const assignNewValues = () => {
@@ -11,7 +10,7 @@ const OffAndOn = () => {
       Object.keys(userState).map(
         (key) => (newUserState[key] = Math.random() < 0.5)
       );
-      setUserState({ ...userState, ...newUserState });
+      setUserState(newUserState);
     };
 
     const timer = setTimeout(assignNewValues, 3000);

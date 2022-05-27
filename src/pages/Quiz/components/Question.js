@@ -3,11 +3,11 @@ import "./Question.css";
 
 const Question = ({
   currentQuestion,
-  setNext,
+  setNextIndex,
   userAnswers,
   setUserAnswers,
 }) => {
-  const { question, answers, correct, id } = currentQuestion;
+  const { question, answers, correct } = currentQuestion;
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const recordAnswer = () => {
@@ -15,16 +15,10 @@ const Question = ({
     if (radioButtons.length > 0) {
       const result = [...radioButtons].filter((rb) => rb.checked === true);
       setSelectedAnswer(result[0]);
-      console.log(
-        "result[0].value:",
-        result[0].value,
-        "result[0].id:",
-        result[0].id
-      );
       setUserAnswers([
         ...userAnswers,
         {
-          id: result[0].id,
+          id: result[0].id, //radio button id, assigned on line: <input type="radio" id={i} value={a} name="answer" />
           value: result[0].value,
           correct: result[0].id.toString() === correct.toString(),
         },
@@ -34,8 +28,8 @@ const Question = ({
     }
   };
 
-  const next = () => {
-    setNext(id + 1);
+  const handleNextClick = () => {
+    setNextIndex((prev) => prev + 1);
     selectedAnswer.checked = false;
     setSelectedAnswer(null);
   };
@@ -55,7 +49,11 @@ const Question = ({
       <button className="btn-some" type="submit" onClick={recordAnswer}>
         Submit
       </button>
-      <button className="btn-some" disabled={!selectedAnswer} onClick={next}>
+      <button
+        className="btn-some"
+        disabled={!selectedAnswer}
+        onClick={handleNextClick}
+      >
         Next
       </button>
     </>
