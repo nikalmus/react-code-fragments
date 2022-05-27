@@ -1,0 +1,21 @@
+button {
+    margin: 0.5rem;
+}
+
+.stripe {
+  height: 2rem;
+  background-color: slategray;
+  margin-bottom: 0.5rem
+}
+
+.pink {
+    background-color: pink;
+}
+
+.green {
+    background-color: lightgreen;
+}
+
+.gray {
+    background-color: slategray;
+}

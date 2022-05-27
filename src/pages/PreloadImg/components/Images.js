@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-const Images = ({ images, largeImages }) => {
+const Images = ({ images, setGrayStripe }) => {
   const [index, setIndex] = useState(0);
   const preloads = useRef([]);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     if (index < images.length - 1) {
@@ -10,15 +11,23 @@ const Images = ({ images, largeImages }) => {
       preloads.current.push(image);
     }
   }, [images, index]);
+
+  const getImgSize = () => {
+    const newWidth = imgRef.current.clientWidth;
+    setGrayStripe(newWidth);
+  };
+
   return (
     <div>
-      <img src={images[index]} alt="" />
-      {index > 0 && (
-        <button onClick={() => setIndex((prev) => prev - 1)}>prev</button>
-      )}
-      {index < images.length - 1 && (
-        <button onClick={() => setIndex((prev) => prev + 1)}>next</button>
-      )}
+      <img src={images[index]} alt="" ref={imgRef} onLoad={getImgSize} />
+      <div>
+        {index > 0 && (
+          <button onClick={() => setIndex((prev) => prev - 1)}>prev</button>
+        )}
+        {index < images.length - 1 && (
+          <button onClick={() => setIndex((prev) => prev + 1)}>next</button>
+        )}
+      </div>
     </div>
   );
 };
