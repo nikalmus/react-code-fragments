@@ -3,6 +3,7 @@ import QUESTIONS from "../Constants";
 import Question from "./Question";
 import Modal from "./Modal";
 import ScoreModal from "./ScoreModal";
+import Backdrop from "./Backdrop";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(QUESTIONS[0]);
@@ -38,6 +39,19 @@ const Quiz = () => {
     }%`;
   };
 
+  const renderUserAnswers = () => {
+    modalRef.current && console.log(modalRef.current.getClientRects());
+    return (
+      <>
+        <strong>Your answers were:</strong>
+        <ul className="no-bullets">
+          {userAnswers.map((a, i) => (
+            <li key={i}>{`${a.value} : ${a.correct}`}</li>
+          ))}
+        </ul>
+      </>
+    );
+  };
   return (
     <>
       <Question
@@ -49,14 +63,13 @@ const Quiz = () => {
       <div>
         {scoreRequested && userAnswers.length > 0 && (
           <>
-            <span>Your answers were:</span>
-            <ul className="no-bullets">
-              {userAnswers.map((a, i) => (
-                <li key={i}>{`${a.value} : ${a.correct}`}</li>
-              ))}
-            </ul>
+            <Backdrop />
             <Modal>
-              <ScoreModal score={getScore()} modalRef={modalRef} />
+              <ScoreModal
+                score={getScore()}
+                modalRef={modalRef}
+                render={renderUserAnswers}
+              />
             </Modal>
           </>
         )}
