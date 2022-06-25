@@ -15,7 +15,7 @@ const SeriousGrid = () => {
           </button>
         ))}
       </div>
-      <div class="content">
+      <div className="content">
         {layout === "grid" ? (
           <SomeContainer cssClass="grid" />
         ) : layout === "flex" ? (

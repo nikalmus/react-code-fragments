@@ -10,6 +10,7 @@ import Users from "../pages/OfflineOnlineContext/components/Users";
 import Quiz from "../pages/Quiz/components/Quiz";
 import Gallery from "../pages/PreloadImg/components/Gallery";
 import Search from "../pages/Search/components/Search";
+import Game from "../pages/TTT/components/Game";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
@@ -24,6 +25,7 @@ const Tabs = () => {
     "Quiz",
     "Gallery",
     "Search",
+    "TTT",
     "Blank",
   ];
   return (
@@ -60,6 +62,8 @@ const Tabs = () => {
               return <Gallery />;
             case "Search":
               return <Search />;
+            case "TTT":
+              return <Game />;
             default:
               return <Blank />;
           }
