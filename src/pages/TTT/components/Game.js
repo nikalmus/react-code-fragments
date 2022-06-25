@@ -51,8 +51,7 @@ const Game = () => {
   }
 
   function selectSquare(boardIndex) {
-    console.log("selectSquare", boardIndex);
-    const historyCopy = [...history];
+    const historyCopy = history.slice(0, move + 1);
     const snapshotCopy = [...snapshot];
     snapshotCopy[boardIndex] = nextValue;
     setHistory([...historyCopy, snapshotCopy]);
