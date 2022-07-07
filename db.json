@@ -1,0 +1,27 @@
+{
+    "lasmeninas": [
+      {
+        "painter": "Diego Velázquez",
+        "pic":"/images/velazquez.png",
+        "id": "velazquez"
+      },
+      {
+        "painter": "John Sargent",
+        "pic":"/images/sargent.png",
+        "id": "sargent"
+      },
+      {
+        "painter": "Publo Picasso",
+        "pic":"/images/picasso.png",
+        "id": "picasso"
+      }
+    ],
+    "placeholder": [
+      {
+       
+      },
+      {
+      
+      }
+    ]
+  }

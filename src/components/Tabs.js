@@ -11,6 +11,7 @@ import Quiz from "../pages/Quiz/components/Quiz";
 import Gallery from "../pages/PreloadImg/components/Gallery";
 import Search from "../pages/Search/components/Search";
 import Game from "../pages/TTT/components/Game";
+import Paintings from "../pages/PaintingSearch/components/Paintings";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
@@ -26,6 +27,7 @@ const Tabs = () => {
     "Gallery",
     "Search",
     "TTT",
+    "Painting Search",
     "Blank",
   ];
   return (
@@ -64,6 +66,8 @@ const Tabs = () => {
               return <Search />;
             case "TTT":
               return <Game />;
+            case "Painting Search":
+              return <Paintings />;
             default:
               return <Blank />;
           }
