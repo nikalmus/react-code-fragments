@@ -1,15 +1,15 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Dropdown from "./Dropdown";
 import { getData } from "../api/requests";
 import useAsync from "./useAsync";
 
 const Paintings = () => {
   const [selectedOption, setSelectedOption] = useState(null);
-  const asyncCallback = useCallback(() => getData(), []);
-  const state = useAsync(asyncCallback);
-
-  const { data, status, error } = state;
-
+  const { data, status, error, run } = useAsync();
+  useEffect(() => {
+    const promise = getData();
+    run(promise);
+  }, [run]);
   const handleSelection = (e) => {
     const found = data?.filter((pic) => pic.painter === e.currentTarget.value);
     if (found) {

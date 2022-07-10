@@ -1,17 +1,13 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useCallback, useReducer } from "react";
 import asyncReducer from "../reducers/asyncReducer";
 
-function useAsync(asyncCallback) {
+function useAsync() {
   const [state, dispatch] = useReducer(asyncReducer, {
     status: "pending",
     data: null,
     error: null,
   });
-  useEffect(() => {
-    const promise = asyncCallback();
-    if (!promise) {
-      return;
-    }
+  const run = useCallback((promise) => {
     dispatch({ type: "pending" });
     promise.then(
       (data) => {
@@ -21,8 +17,9 @@ function useAsync(asyncCallback) {
         dispatch({ type: "rejected", error });
       }
     );
-  }, [asyncCallback]);
-  return state;
+  }, []);
+
+  return { ...state, run };
 }
 
 export default useAsync;
