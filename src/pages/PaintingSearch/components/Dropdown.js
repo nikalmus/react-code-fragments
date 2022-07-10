@@ -4,8 +4,8 @@ import "./Dropdown.css";
 
 const Dropdown = ({ onOptionChange, options }) => {
   return (
-    <select onChange={onOptionChange}>
-      <option value="" disabled selected hidden>
+    <select onChange={onOptionChange} defaultValue="">
+      <option value="" disabled>
         Choose...
       </option>
       {options.map((option) => (

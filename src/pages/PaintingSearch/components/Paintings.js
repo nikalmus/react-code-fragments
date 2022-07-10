@@ -1,37 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import Dropdown from "./Dropdown";
-import { getPictures } from "../api/requests";
+import { getData } from "../api/requests";
+import useAsync from "./useAsync";
 
 const Paintings = () => {
   const [selectedOption, setSelectedOption] = useState(null);
-  const [pictures, setPictures] = useState([]);
+  const asyncCallback = useCallback(() => getData(), []);
+  const state = useAsync(asyncCallback);
+
+  const { data, status, error } = state;
 
   const handleSelection = (e) => {
-    const found = pictures?.filter(
-      (pic) => pic.painter === e.currentTarget.value
-    );
+    const found = data?.filter((pic) => pic.painter === e.currentTarget.value);
     if (found) {
       setSelectedOption(found[0]);
     }
   };
 
-  useEffect(() => {
-    const makeRequest = async () => {
-      const pics = await getPictures();
-      setPictures(pics);
-    };
-    makeRequest();
-  }, []);
+  const renderPage = () => {
+    switch (status) {
+      case "pending":
+        return <p>Loading...</p>;
+      case "rejected":
+        return <p>{`OH NOES! ${error}`}</p>;
+      case "resolved":
+        return (
+          <>
+            {!selectedOption && <p>Make a selection</p>}
+            <Dropdown
+              onOptionChange={handleSelection}
+              options={data?.map((p) => p.painter)}
+            />
+          </>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
-      <div>Las Meninas</div>
-      {pictures && (
-        <Dropdown
-          onOptionChange={handleSelection}
-          options={pictures?.map((p) => p.painter)}
-        />
-      )}
+      {renderPage()}
       {selectedOption && (
         <div>
           <img

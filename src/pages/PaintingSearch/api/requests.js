@@ -3,7 +3,7 @@ import axios from "axios";
 import { config } from "../utils/Constants";
 const url = config.urls.PIC_URL;
 
-export const getPictures = async (slug = null) => {
+export const getData = async (slug = null) => {
   try {
     const endpoint = slug ? `${url}/${slug}` : url;
 
