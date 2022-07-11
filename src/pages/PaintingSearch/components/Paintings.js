@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 import { getData } from "../api/requests";
 import useAsync from "./useAsync";
