@@ -12,6 +12,7 @@ import Gallery from "../pages/PreloadImg/components/Gallery";
 import Search from "../pages/Search/components/Search";
 import Game from "../pages/TTT/components/Game";
 import Paintings from "../pages/PaintingSearch/components/Paintings";
+import DragAndDrop from "../pages/DnD/DragAndDrop";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Blank");
@@ -28,6 +29,7 @@ const Tabs = () => {
     "Search",
     "TTT",
     "Painting Search",
+    "DnD",
     "Blank",
   ];
   return (
@@ -68,6 +70,8 @@ const Tabs = () => {
               return <Game />;
             case "Painting Search":
               return <Paintings />;
+            case "DnD":
+              return <DragAndDrop />;
             default:
               return <Blank />;
           }
